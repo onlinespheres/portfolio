@@ -18,7 +18,8 @@ const item = {
 
 export default function Hero() {
   return (
-    <section className="relative isolate overflow-hidden bg-surface lg:min-h-screen">
+    <section className="bg-surface px-3 pt-3 pb-3 sm:px-5 sm:pt-5 sm:pb-5 lg:px-6 lg:pt-8 lg:pb-6 xl:px-8">
+      <div className="relative isolate overflow-hidden rounded-[1.75rem] border-x border-b border-white/10 bg-surface shadow-[0_1.5rem_4rem_rgba(0,0,0,0.28)] lg:min-h-[calc(100svh-3.5rem)] lg:rounded-[2rem]">
       {/* Full-bleed background image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -35,7 +36,7 @@ export default function Hero() {
           left-to-right on desktop (text side dark, image side clear) */}
       <div className="absolute inset-0 z-10 bg-linear-to-b from-surface via-surface/70 to-surface/20 lg:bg-linear-to-r lg:from-surface lg:via-surface/75 lg:to-transparent" />
       {/* Extra top scrim so the navbar stays legible regardless of x-position */}
-      <div className="absolute inset-x-0 top-0 z-10 h-32 bg-linear-to-b from-surface/90 to-transparent lg:h-40" />
+      <div className="absolute inset-x-0 top-0 z-10 h-32 bg-linear-to-b from-surface via-surface to-transparent lg:h-40" />
 
       {/* Desktop-only avatar, absolutely positioned relative to the full-bleed
           section (not the centered `.container`) so its horizontal anchor can
@@ -53,7 +54,7 @@ export default function Hero() {
           fill
           priority
           sizes="46vw"
-          className="object-contain object-bottom drop-shadow-2xl"
+          className="object-contain object-bottom grayscale"
         />
       </motion.div>
 
@@ -71,12 +72,12 @@ export default function Hero() {
       </motion.p>
 
       {/* Foreground text content stays in the centered container */}
-      <div className="container relative z-30 flex w-full flex-col lg:min-h-screen">
+      <div className="container relative z-30 flex w-full flex-col lg:min-h-[calc(100svh-3.5rem)]">
         <motion.div
           variants={contentContainer}
           initial="hidden"
           animate="show"
-          className="flex flex-1 flex-col items-start gap-5 pt-24 pb-8 lg:max-w-xl lg:justify-center lg:pt-28 lg:pb-0"
+          className="flex flex-1 flex-col items-start gap-5 pt-24 pb-8 lg:max-w-xl lg:justify-center lg:pt-0 lg:pb-0"
         >
           <motion.p
             variants={item}
@@ -91,7 +92,7 @@ export default function Hero() {
           >
             RANJIT <span className="text-accent">JANA</span>
             <span className="mt-1 block text-2xl font-semibold text-subtext sm:text-3xl">
-              Frontend Developer
+              Full Stack Developer
             </span>
           </motion.h1>
 
@@ -166,14 +167,14 @@ export default function Hero() {
       {/* Mobile/tablet-only avatar, in normal document flow below the text so
           it can never overlap the copy above it regardless of text length —
           unlike the desktop version, this isn't absolutely positioned. */}
-      <div className="relative z-20 mt-4 pb-10 lg:hidden">
+      <div className="relative z-20 mt-0 pb-0 lg:hidden">
         <div className="relative mx-auto h-72 w-[92%] sm:h-96 sm:w-[80%]">
           <Image
             src="/asset/images/my-avtar.png"
             alt="Ranjit Jana portrait"
             fill
             sizes="92vw"
-            className="object-contain object-bottom drop-shadow-2xl"
+            className="object-contain object-bottom grayscale"
           />
           <motion.p
             initial={{ opacity: 0, y: -10 }}
@@ -187,6 +188,7 @@ export default function Hero() {
             <span className="mt-1 block h-0.5 w-16 bg-accent" />
           </motion.p>
         </div>
+      </div>
       </div>
     </section>
   );
